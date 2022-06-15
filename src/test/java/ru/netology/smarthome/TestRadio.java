@@ -23,7 +23,7 @@ public class TestRadio {
 
     @Test
 
-    public void shoulsSetNextStation() {
+    public void shouldSetNextStation() {
         Radio radio = new Radio();
         radio.setStationNumber(3);
         radio.next();
@@ -36,7 +36,7 @@ public class TestRadio {
 
     @Test
 
-    public void shoulsSetPrevStation() {
+    public void shouldSetPrevStation() {
         Radio radio = new Radio();
         radio.setStationNumber(7);
         radio.prev();
@@ -49,7 +49,7 @@ public class TestRadio {
 
     @Test
 
-    public void shoulCycleNextStation() {
+    public void shouldCycleNextStation() {
         Radio radio = new Radio();
         radio.setStationNumber(9);
         radio.next();
@@ -62,7 +62,7 @@ public class TestRadio {
 
     @Test
 
-    public void shoulCyclePrevStation() {
+    public void shouldCyclePrevStation() {
         Radio radio = new Radio();
         radio.setStationNumber(0);
         radio.prev();
@@ -78,7 +78,7 @@ public class TestRadio {
             "10, 10"
     })
 
-    public void shoulIncreaseVolume(int volume, int expected) {
+    public void shouldIncreaseVolume(int volume, int expected) {
         Radio radio = new Radio();
         radio.volume = volume;
         radio.increaseVolume();
@@ -94,7 +94,7 @@ public class TestRadio {
             "0, 0"
     })
 
-    public void shoulDecreaseVolume(int volume, int expected) {
+    public void shouldDecreaseVolume(int volume, int expected) {
         Radio radio = new Radio();
         radio.volume = volume;
         radio.decreaseVolume();
