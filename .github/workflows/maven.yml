@@ -16,6 +16,3 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B -e verify
-© 2022 GitHub, Inc.
-Terms
-Pr
