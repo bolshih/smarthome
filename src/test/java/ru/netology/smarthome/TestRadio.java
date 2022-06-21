@@ -8,8 +8,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class TestRadio {
     @Test
     public void shouldSetStaitionAmount() {
-        Radio radio = new Radio(25);
-
+        Radio radio = new Radio();
+        radio.setStationAmount(25);
         Assertions.assertEquals(25, radio.getStationAmount());
     }
 
@@ -56,7 +56,8 @@ public class TestRadio {
     @Test
 
     public void shouldCycleNextStation() {
-        Radio radio = new Radio(25);
+        Radio radio = new Radio();
+        radio.setStationAmount(25);
         radio.setStationNumber(24);
         radio.next();
 
@@ -69,7 +70,8 @@ public class TestRadio {
     @Test
 
     public void shouldCyclePrevStation() {
-        Radio radio = new Radio(25);
+        Radio radio = new Radio();
+        radio.setStationAmount(25);
         radio.setStationNumber(0);
         radio.prev();
 
