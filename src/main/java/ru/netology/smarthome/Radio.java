@@ -1,15 +1,20 @@
 package ru.netology.smarthome;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
     private int stationNumber;
-    public int volume;
-
-    public int getStationNumber() {
-        return stationNumber;
-    }
+    private int stationAmount = 10;
+    private int volume;
 
     public void setStationNumber(int newStationNumber) {
-        if (newStationNumber <= 9) {
+        if (newStationNumber < stationAmount) {
             if (newStationNumber >= 0) {
                 stationNumber = newStationNumber;
             }
@@ -17,7 +22,7 @@ public class Radio {
     }
 
     public void next() {
-        if (stationNumber < 9) {
+        if (stationNumber < (stationAmount - 1)) {
             stationNumber = stationNumber + 1;
         } else {
             stationNumber = 0;
@@ -28,12 +33,12 @@ public class Radio {
         if (stationNumber > 0) {
             stationNumber = stationNumber - 1;
         } else {
-            stationNumber = 9;
+            stationNumber = stationAmount - 1;
         }
     }
 
     public void increaseVolume() {
-        if (volume < 10) {
+        if (volume < 100) {
             volume = volume + 1;
         }
     }

@@ -6,6 +6,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class TestRadio {
+    @Test
+    public void shouldSetStaitionAmount() {
+        Radio radio = new Radio();
+        radio.setStationAmount(25);
+        Assertions.assertEquals(25, radio.getStationAmount());
+    }
 
     @ParameterizedTest
     @CsvSource({"-1, 0",
@@ -51,7 +57,8 @@ public class TestRadio {
 
     public void shouldCycleNextStation() {
         Radio radio = new Radio();
-        radio.setStationNumber(9);
+        radio.setStationAmount(25);
+        radio.setStationNumber(24);
         radio.next();
 
         int expected = 0;
@@ -64,28 +71,26 @@ public class TestRadio {
 
     public void shouldCyclePrevStation() {
         Radio radio = new Radio();
+        radio.setStationAmount(25);
         radio.setStationNumber(0);
         radio.prev();
 
-        int expected = 9;
         int actual = radio.getStationNumber();
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(radio.getStationAmount() - 1, actual);
     }
 
     @ParameterizedTest
     @CsvSource({"5, 6",
-            "10, 10"
+            "100, 100"
     })
 
     public void shouldIncreaseVolume(int volume, int expected) {
         Radio radio = new Radio();
-        radio.volume = volume;
+        radio.setVolume(volume);
         radio.increaseVolume();
 
-        int actual = radio.volume;
-
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, radio.getVolume());
 
     }
 
@@ -96,12 +101,10 @@ public class TestRadio {
 
     public void shouldDecreaseVolume(int volume, int expected) {
         Radio radio = new Radio();
-        radio.volume = volume;
+        radio.setVolume(volume);
         radio.decreaseVolume();
 
-        int actual = radio.volume;
-
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, radio.getVolume());
 
     }
 }
